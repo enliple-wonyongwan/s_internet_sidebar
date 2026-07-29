@@ -243,6 +243,7 @@ const bindTargetChartEvent = ($target) => {
 
     options: {
       maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
       plugins: {
         legend: {
           display: false,
@@ -252,7 +253,6 @@ const bindTargetChartEvent = ($target) => {
           external: (context) => bindTargetCustomTooltip(context, priceRange),
         },
       },
-
       scales: {
         x: {
           grid: {
@@ -283,7 +283,6 @@ const bindTargetChartEvent = ($target) => {
           },
         },
       },
-
       elements: {
         line: {
           capBezierPoints: false,
