@@ -1,0 +1,78 @@
+// common
+@mixin max-width($mw: calc(100% - 312px)) {
+  max-width: $mw;
+  margin: 0 auto;
+}
+
+@mixin flex-pos($d: flex, $fd: row, $jc: start, $ai: stretch, $g: normal, $fw: nowrap) {
+  display: $d;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+  gap: $g;
+  flex-wrap: $fw;
+}
+
+@mixin image-set($bs: contain, $bp: center) {
+  background-size: $bs;
+  background-repeat: no-repeat;
+  background-position: $bp;
+}
+
+@mixin text-hide() {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 0;
+}
+
+@mixin text-cut-one() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin text-cut-multiline($w: 100%, $wlc: 2) {
+  width: $w;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $wlc;
+  -webkit-box-orient: vertical;
+  white-space: wrap;
+}
+
+@mixin pos-center() {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin pos-y-center() {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin pos-x-center() {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin pos-bottom() {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin elm-create() {
+  content: '';
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+}

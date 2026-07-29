@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>기타</title>
+    <!-- style -->
+    <link rel="stylesheet" href="./assets/styles/global.css" />
+    <link rel="stylesheet" href="./assets/styles/pages/index.css" />
+    <!-- js -->
+    <script src="./assets/js/ui.js" defer></script>
+  </head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+      height: 100vh;
+      padding: 100px;
+      background: #807a7a;
+    }
+
+    .row {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+  </style>
+  <body>
+    <div class="row">
+      <button class="btn btn--alarm" type="button" aria-label="알림 추가">
+        <span class="icon icon--alarm-3d-yellow" aria-hidden="true"></span>
+        <span class="icon icon--plus-circle-blue" aria-hidden="true"></span>
+      </button>
+      <button class="btn btn--alarm" type="button">
+        <span class="icon icon--alarm-3d-yellow" aria-hidden="true"></span>
+        <span class="btn__count">5</span>
+      </button>
+      <button class="btn btn--alarm" type="button" aria-label="알림 사용 불가">
+        <span class="icon icon--alarm-3d-yellow" aria-hidden="true"></span>
+        <span class="icon icon--ban-circle-gray" aria-hidden="true"></span>
+      </button>
+    </div>
+    <div class="row">
+      <div class="popup is-active">
+        <button class="popup__close" type="button" aria-label="팝업 닫기">
+          <span class="icon icon--close-light-gray" aria-hidden="true"></span>
+        </button>
+        <div class="popup__content">
+          <p class="popup__title">관심 상품에서 삭제하시겠어요?</p>
+          <p class="popup__message">
+            해당 상품의 가격 변동 알림을<br />
+            더 이상 받을 수 없게 돼요
+          </p>
+        </div>
+        <div class="popup__footer">
+          <button class="popup__btn popup__btn" type="button">삭제</button>
+          <button class="popup__btn popup__btn popup__btn--accent popup__btn--blue" type="button">취소</button>
+        </div>
+      </div>
+      <div class="popup is-active">
+        <button class="popup__close" type="button" aria-label="팝업 닫기">
+          <span class="icon icon--close-light-gray" aria-hidden="true"></span>
+        </button>
+        <div class="popup__content">
+          <p class="popup__title">설정한 목표가를 삭제하시겠어요?</p>
+          <p class="popup__message">
+            해당 상품의 설정한 목표가가 삭제되며<br />
+            목표가 도달 알림을 받을 수 없어요
+          </p>
+        </div>
+        <div class="popup__footer">
+          <button class="popup__btn popup__btn" type="button">삭제</button>
+          <button class="popup__btn popup__btn popup__btn--accent popup__btn--blue" type="button">취소</button>
+        </div>
+      </div>
+      <div class="popup is-active">
+        <button class="popup__close" type="button" aria-label="팝업 닫기">
+          <span class="icon icon--close-light-gray" aria-hidden="true"></span>
+        </button>
+        <div class="popup__content">
+          <p class="popup__title">최저가 알림 서비스를 끄시겠어요?</p>
+          <p class="popup__message">
+            등록한 모든 관심 상품의 가격 정보를<br />
+            더이상 받아볼 수 없어요
+          </p>
+        </div>
+        <div class="popup__footer">
+          <button class="popup__btn popup__btn" type="button">알람끄기</button>
+          <button class="popup__btn popup__btn popup__btn--accent popup__btn--blue" type="button">알람유지</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="popup popup--coupang-alarm is-active">
+        <button class="popup__close" type="button" aria-label="팝업 닫기">
+          <span class="icon icon--close-black" aria-hidden="true"></span>
+        </button>
+        <div class="popup__header">
+          <p class="popup__title"><span class="logo logo--coupang-radius" aria-hidden="true"></span>쿠팡 할인 알림</p>
+        </div>
+        <div class="popup__content">
+          <div class="popup__product">
+            <span class="popup__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+            <div class="popup__product-info">
+              <p class="popup__product-name">SAMMU 게이밍의자 610-B, 다리 받침 대형SAMMU 게이밍의자 610-B, 다리 받침 대형</p>
+              <p class="popup__product-message">외 <sapn class="popup__product-emphasize">3개 상품</sapn>의 가격이 평균가 아래로 내려갔어요!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="popup popup--coupang-alarm is-active">
+        <button class="popup__close" type="button" aria-label="팝업 닫기">
+          <span class="icon icon--close-black" aria-hidden="true"></span>
+        </button>
+        <div class="popup__header">
+          <p class="popup__title"><span class="logo logo--coupang-radius" aria-hidden="true"></span>쿠팡 할인 알림</p>
+        </div>
+        <div class="popup__content">
+          <div class="popup__product">
+            <div class="popup__product-info">
+              <p class="popup__product-name"><span class="icon icon--arrow-down-lightning-red" aria-hidden="true"></span>SAMMU 게이밍의자 610-B, 다리 받침 대형SAMMU 게이밍의자 610-B, 다리 받침 대형</p>
+              <p class="popup__product-message">외 <sapn class="popup__product-emphasize">3개 상품</sapn>의 가격이 평균가 아래로 내려갔어요!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

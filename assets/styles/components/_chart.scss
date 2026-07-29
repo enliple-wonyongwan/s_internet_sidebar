@@ -1,0 +1,54 @@
+.chart {
+  &__tooltip {
+    position: absolute;
+    width: 120px;
+    padding: 6px 8px 12px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 6px;
+    color: #fff;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  &__tooltip-date {
+    font-size: 10px;
+    letter-spacing: -0.2px;
+    line-height: 14px;
+    color: var(--color-text-400);
+    text-align: center;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--color-border-300);
+  }
+
+  &__tooltip-row {
+    @include flex-pos($jc: space-between, $ai: center);
+    margin-bottom: 4px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__tooltip-label {
+    font-size: 8px;
+    letter-spacing: -0.16px;
+    color: var(--color-text-400);
+  }
+
+  &__tooltip-value {
+    font-size: 10px;
+    line-height: 11px;
+    letter-spacing: -0.2px;
+    font-weight: 500;
+
+    &--high {
+      color: var(--color-text-accent-blue);
+    }
+
+    &--low {
+      color: var(--color-text-accent-red);
+    }
+  }
+}

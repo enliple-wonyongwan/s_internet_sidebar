@@ -1,0 +1,115 @@
+.btn {
+  display: inline-block;
+
+  &--variant-1 {
+    width: 100%;
+    max-width: 272px;
+    height: 50px;
+    border: 1px solid var(--color-btn-border-accent-blue);
+    background-color: var(--color-btn-bg-200);
+    border-radius: 10px;
+    font-size: 15px;
+    letter-spacing: -0.3px;
+    font-weight: 700;
+    color: var(--color-btn-text-accent-blue);
+  }
+
+  &--variant-2 {
+    width: 100%;
+    height: 50px;
+    background-color: var(--color-btn-bg-accent-blue);
+    border-radius: 6px;
+    font-size: 15px;
+    letter-spacing: -0.3px;
+    font-weight: 500;
+    color: var(--color-btn-text-100);
+  }
+
+  &--variant-3 {
+    width: 100%;
+    height: 50px;
+    background-color: var(--color-btn-bg-200);
+    border-radius: 6px;
+    font-size: 15px;
+    letter-spacing: -0.3px;
+    font-weight: 400;
+    border: 1px solid var(--color-btn-border-100);
+    color: var(--color-btn-text-200);
+  }
+
+  &--tooltip {
+    @include flex-pos($ai: center, $jc: center, $g: 9px);
+  }
+
+  &--alarm {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    box-shadow: 0 0 6px 0 rgba(102, 102, 102, 0.3);
+    border: solid 1px #d9d9d9;
+    background-color: #fff;
+    border-radius: 100%;
+
+    .icon {
+      display: inline-block;
+      position: absolute;
+
+      &--alarm-3d-yellow {
+        width: 44px;
+        height: 44px;
+        left: 16px;
+        bottom: 16px;
+      }
+
+      &--plus-circle-blue,
+      &--ban-circle-gray {
+        width: 20px;
+        height: 20px;
+        top: 15px;
+        right: 16px;
+      }
+    }
+
+    .btn__count {
+      position: absolute;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      top: 15px;
+      right: 16px;
+      background-color: #ff0000;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: #fff;
+    }
+  }
+
+  &--toggle {
+    border-radius: 12px;
+    padding: 2px 3px;
+    background-color: var(--color-btn-bg-100);
+    width: 38px;
+    height: 20px;
+    text-align: left;
+    transition: 0.1s ease-in-out;
+
+    &.is-active {
+      background-color: var(--color-btn-bg-accent-blue);
+
+      .btn__circle {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  &__circle {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background-color: #fff;
+    transition: 0.1s ease-in-out;
+  }
+}

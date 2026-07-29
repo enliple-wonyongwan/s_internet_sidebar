@@ -1,0 +1,114 @@
+:root {
+  // basic
+  --ic-coin-stack: url(../icons/ic-coin-stack.png);
+  --ic-close-sidebar: url(../icons/ic-close-sidebar.png);
+  --ic-shopping-bag-blue: url(../icons/ic-shopping-bag-blue.png);
+  --ic-alarm-blue: url(../icons/ic-alarm-blue.png);
+  --ic-alarm-3d-yellow: url(../icons/ic-alarm-3d-yellow.png);
+  --ic-graph-blue: url(../icons/ic-graph-blue.png);
+  --ic-triangle-up-blue: url(../icons/ic-triangle-up-blue.png);
+  --ic-triangle-down-red: url(../icons/ic-triangle-down-red.png);
+  --ic-close-circle-gray: url(../icons/ic-close-circle-gray.png);
+  --ic-close-light-gray: url(../icons/ic-close-light-gray.png);
+  --ic-close-black: url(../icons/ic-close-black.png);
+  --ic-arrow-down-lightning: url(../icons/ic-arrow-down-lightning.png);
+  --ic-arrow-down-lightning-red: url(../icons/ic-arrow-down-lightning-red.png);
+  --ic-tooltip-circle-white: url(../icons/ic-tooltip-circle-white.png);
+  --ic-caution-gray: url(../icons/ic-caution-gray.png);
+  --ic-plus-circle-gray: url(../icons/ic-plus-circle-gray.png);
+  --ic-plus-circle-blue: url(../icons/ic-plus-circle-blue.png);
+  --ic-minus-circle-gray: url(../icons/ic-minus-circle-gray.png);
+  --ic-ban-circle-gray: url(../icons/ic-ban-circle-gray.png);
+  --ic-dart: url(../icons/ic-dart.png);
+  --ic-waste-blue: url(../icons/ic-waste-blue.png);
+}
+
+.icon {
+  @include image-set();
+  display: inline-block;
+
+  // basic
+  &--coin-stack {
+    background-image: var(--ic-coin-stack);
+  }
+
+  &--close-sidebar {
+    background-image: var(--ic-close-sidebar);
+  }
+
+  &--shopping-bag-blue {
+    background-image: var(--ic-shopping-bag-blue);
+  }
+
+  &--alarm-blue {
+    background-image: var(--ic-alarm-blue);
+  }
+
+  &--alarm-3d-yellow {
+    background-image: var(--ic-alarm-3d-yellow);
+  }
+
+  &--graph-blue {
+    background-image: var(--ic-graph-blue);
+  }
+
+  &--triangle-up-blue {
+    background-image: var(--ic-triangle-up-blue);
+  }
+
+  &--triangle-down-red {
+    background-image: var(--ic-triangle-down-red);
+  }
+
+  &--close-circle-gray {
+    background-image: var(--ic-close-circle-gray);
+  }
+
+  &--close-light-gray {
+    background-image: var(--ic-close-light-gray);
+  }
+
+  &--arrow-down-lightning {
+    background-image: var(--ic-arrow-down-lightning);
+  }
+
+  &--arrow-down-lightning-red {
+    background-image: var(--ic-arrow-down-lightning-red);
+  }
+
+  &--tooltip-circle-white {
+    background-image: var(--ic-tooltip-circle-white);
+  }
+
+  &--caution-gray {
+    background-image: var(--ic-caution-gray);
+  }
+
+  &--plus-circle-gray {
+    background-image: var(--ic-plus-circle-gray);
+  }
+
+  &--plus-circle-blue {
+    background-image: var(--ic-plus-circle-blue);
+  }
+
+  &--minus-circle-gray {
+    background-image: var(--ic-minus-circle-gray);
+  }
+
+  &--ban-circle-gray {
+    background-image: var(--ic-ban-circle-gray);
+  }
+
+  &--dart {
+    background-image: var(--ic-dart);
+  }
+
+  &--waste-blue {
+    background-image: var(--ic-waste-blue);
+  }
+
+  &--close-black {
+    background-image: var(--ic-close-black);
+  }
+}

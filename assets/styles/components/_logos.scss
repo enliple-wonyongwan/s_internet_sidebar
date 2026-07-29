@@ -1,0 +1,34 @@
+:root {
+  // basic
+  --logo-coupang: url(../logos/logo-coupang.png);
+  --logo-11-square: url(../logos/logo-11-square.png);
+  --logo-gmarket-square: url(../logos/logo-gmarket-square.png);
+  --logo-auction-square: url(../logos/logo-auction-square.png);
+  --logo-coupang-radius: url(../logos/logo-coupang-radius.png);
+}
+
+.logo {
+  @include image-set();
+  display: inline-block;
+
+  // basic
+  &--coupang {
+    background-image: var(--logo-coupang);
+  }
+
+  &--11-square {
+    background-image: var(--logo-11-square);
+  }
+
+  &--gmarket-square {
+    background-image: var(--logo-gmarket-square);
+  }
+
+  &--auction-square {
+    background-image: var(--logo-auction-square);
+  }
+
+  &--coupang-radius {
+    background-image: var(--logo-coupang-radius);
+  }
+}

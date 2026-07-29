@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사이드바</title>
+    <!-- style -->
+    <link rel="stylesheet" href="./assets/styles/global.css" />
+    <link rel="stylesheet" href="./assets/styles/pages/index.css" />
+    <!-- js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="./assets/js/ui.js"></script>
+  </head>
+  <body style="overflow: hidden">
+    <div class="wrap" style="margin-left: auto">
+      <header class="header">
+        <div class="header__container">
+          <h1 class="header__title-wrap">
+            <span class="icon icon--coin-stack" aria-hidden="true"></span>
+            <span class="header__title">최저가알림 서비스</span>
+          </h1>
+          <div class="header__toggle-wrap">
+            <span class="header__toggle-label">전체 알림</span>
+            <button class="btn btn--toggle" type="button" aria-label="전체 알림 켜기" data-toggle-btn="header-toggle-btn-1" data-toggle-target="header-toggle-btn-1">
+              <span class="btn__circle" aria-hidden="true"></span>
+            </button>
+          </div>
+          <button class="header__btn" type="button" aria-label="사이드바 닫기">
+            <span class="icon icon--close-sidebar" aria-hidden="true"></span>
+          </button>
+        </div>
+      </header>
+      <header class="header header--speech-bubble">
+        <div class="header__container">
+          <h1 class="header__title-wrap">
+            <span class="icon icon--coin-stack" aria-hidden="true"></span>
+            <span class="header__title">최저가알림 서비스</span>
+          </h1>
+          <div class="header__toggle-wrap">
+            <span class="header__toggle-label">전체 알림</span>
+            <button class="btn btn--toggle" type="button" aria-label="전체 알림 켜기" data-toggle-btn="header-toggle-btn-2" data-toggle-target="header-toggle-btn-2">
+              <span class="btn__circle" aria-hidden="true"></span>
+            </button>
+          </div>
+          <button class="header__btn" type="button" aria-label="사이드바 닫기">
+            <span class="icon icon--close-sidebar" aria-hidden="true"></span>
+          </button>
+          <div class="header__speech-bubble">
+            <p class="header__speech-bubble-title">지금은 가격 알림을 받을 수 없어요!</p>
+            <p class="header__speech-bubble-desc">알림을 켜고 관심있는 상품의 가격 변동을 받아보세요</p>
+          </div>
+        </div>
+      </header>
+      <div class="contents">
+        <!-- 서비스 안내 -->
+        <div class="content content--notice">
+          <p class="content__title">가격이 내려가면 바로 알려드려요!</p>
+          <p class="content__desc">관심 상품을 등록하고 최적의 구매 타이밍을 잡아보세요.</p>
+          <div class="content__feature">
+            <img class="content__deco" src="./assets/images/img-price-alert.png" alt="최저가 도달 예시 화면" />
+            <ul class="content__feature-list">
+              <li class="content__feature-item">
+                <div class="content__icon-wrap">
+                  <span class="icon icon--graph-blue" aria-hidden="true"></span>
+                </div>
+                <div class="content__feature-info">
+                  <p class="content__feature-title">가격 변동 추이</p>
+                  <p class="content__feature-desc">과거 가격 변화를 한눈에!</p>
+                </div>
+              </li>
+              <li class="content__feature-item">
+                <div class="content__icon-wrap">
+                  <span class="icon icon--alarm-blue" aria-hidden="true"></span>
+                </div>
+                <div class="content__feature-info">
+                  <p class="content__feature-title">가격 변동 알림</p>
+                  <p class="content__feature-desc">지금이 구매 타이밍!</p>
+                </div>
+              </li>
+              <li class="content__feature-item">
+                <div class="content__icon-wrap">
+                  <span class="icon icon--shopping-bag-blue" aria-hidden="true"></span>
+                </div>
+                <div class="content__feature-info">
+                  <p class="content__feature-title">쇼핑몰 가격 비교</p>
+                  <p class="content__feature-desc">가장 저렴한 구매처는?</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 사용방법 -->
+        <div class="content content--guide">
+          <div class="content__header">
+            <p class="content__title">사용방법</p>
+          </div>
+          <div class="content__steps">
+            <div class="content__step">
+              <p class="content__step-title"><span class="content__step-num">1</span>쿠팡 상품 페이지로 이동하기</p>
+              <p class="content__step-desc">가격을 추적하고 싶은 상품 페이지를 열어주세요</p>
+            </div>
+            <div class="content__step">
+              <p class="content__step-title"><span class="content__step-num">2</span>상품 정보 불러오기</p>
+              <p class="content__step-desc">현재 보고 있는 상품의 가격 정보를 불러와요</p>
+              <button class="btn btn--variant-1" type="button">가격 정보 확인하기</button>
+            </div>
+            <div class="content__step">
+              <p class="content__step-title"><span class="content__step-num">3</span>가격 추적 시작하기</p>
+              <p class="content__step-desc">관심 상품으로 등록하여 가격이 내려가거나 원하는 가격이 됐을 때 알림을 받아요</p>
+            </div>
+          </div>
+        </div>
+        <!-- 가격 변동 추이 - 가격 정보 확인 버튼 노출 -->
+        <div class="content content--price-trend">
+          <div class="content__header">
+            <p class="content__title">가격 변동 추이</p>
+          </div>
+          <div class="content__body">
+            <div class="content__product">
+              <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+              <div class="content__product-info">
+                <span class="content__badge">역대 최저가</span>
+                <p class="content__product-name">SAMMU 게이밍의자 610-B, 다리 받침 대형SAMMU 게이밍의자 610-B, 다리 받침 대형</p>
+              </div>
+            </div>
+            <div class="content__price-summary">
+              <div class="content__price-item">
+                <span class="content__price-label content__price-label--high">최고가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+              <div class="content__price-item">
+                <span class="content__price-label content__price-label--low">최저가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+              <div class="content__price-item">
+                <span class="content__price-label">평균가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+            </div>
+            <!-- 차트 -->
+            <div class="content__chart">
+              <canvas class="content__chart-canvas" data-chart></canvas>
+            </div>
+            <button class="btn btn--variant-2 btn--tooltip" type="button">
+              알림 상품 등록하기
+              <span class="tooltip">
+                <span class="tooltip__btn">
+                  <span class="icon icon--tooltip-circle-white" aria-hidden="true"></span>
+                </span>
+                <span class="tooltip__message">
+                  <span class="tooltip__text"
+                    >평균가 아래로 가격이<br />
+                    떨어지거나 역대 최저가인<br />
+                    경우 알려드려요.</span
+                  >
+                </span>
+              </span>
+            </button>
+            <div class="content__overlay">
+              <button class="btn btn--variant-1" type="button">가격 정보 확인하기</button>
+            </div>
+          </div>
+        </div>
+        <!-- 가격 변동 추이 - 로딩 중 -->
+        <div class="content content--price-trend">
+          <div class="content__header">
+            <p class="content__title">가격 변동 추이</p>
+          </div>
+          <div class="content__body">
+            <div class="content__product">
+              <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+              <div class="content__product-info">
+                <span class="content__badge">역대 최저가</span>
+                <p class="content__product-name">SAMMU 게이밍의자 610-B, 다리 받침 대형SAMMU 게이밍의자 610-B, 다리 받침 대형</p>
+              </div>
+            </div>
+            <div class="content__price-summary">
+              <div class="content__price-item">
+                <span class="content__price-label content__price-label--high">최고가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+              <div class="content__price-item">
+                <span class="content__price-label content__price-label--low">최저가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+              <div class="content__price-item">
+                <span class="content__price-label">평균가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+            </div>
+            <!-- 차트 -->
+            <div class="content__chart">
+              <canvas class="content__chart-canvas" data-chart></canvas>
+            </div>
+            <button class="btn btn--variant-2 btn--tooltip" type="button">
+              알림 상품 등록하기
+              <span class="tooltip">
+                <span class="tooltip__btn">
+                  <span class="icon icon--tooltip-circle-white" aria-hidden="true"></span>
+                </span>
+                <span class="tooltip__message">
+                  <span class="tooltip__text"
+                    >평균가 아래로 가격이<br />
+                    떨어지거나 역대 최저가인<br />
+                    경우 알려드려요.</span
+                  >
+                </span>
+              </span>
+            </button>
+            <div class="content__overlay">
+              <div class="content__status">
+                <div class="content__voice-state-wrap content__voice-state-wrap--loading" aria-hidden="true">
+                  <span class="content__voice-state content__voice-state--loading"></span>
+                </div>
+                <div class="content__message">
+                  최신 가격 정보를 불러오고 있어요<br />
+                  잠시만 기다려주세요
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 가격 변동 추이 -->
+        <div class="content content--price-trend">
+          <div class="content__header">
+            <p class="content__title">가격 변동 추이</p>
+          </div>
+          <div class="content__body">
+            <div class="content__product">
+              <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+              <div class="content__product-info">
+                <span class="content__badge">역대 최저가</span>
+                <p class="content__product-name">SAMMU 게이밍의자 610-B, 다리 받침 대형SAMMU 게이밍의자 610-B, 다리 받침 대형</p>
+              </div>
+            </div>
+            <div class="content__price-summary">
+              <div class="content__price-item">
+                <span class="content__price-label content__price-label--high">최고가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+              <div class="content__price-item">
+                <span class="content__price-label content__price-label--low">최저가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+              <div class="content__price-item">
+                <span class="content__price-label">평균가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+            </div>
+            <!-- 차트 -->
+            <div class="content__chart">
+              <canvas class="content__chart-canvas" data-chart></canvas>
+            </div>
+            <button class="btn btn--variant-2 btn--tooltip" type="button">
+              알림 상품 등록하기
+              <span class="tooltip">
+                <span class="tooltip__btn">
+                  <span class="icon icon--tooltip-circle-white" aria-hidden="true"></span>
+                </span>
+                <span class="tooltip__message">
+                  <span class="tooltip__text"
+                    >평균가 아래로 가격이<br />
+                    떨어지거나 역대 최저가인<br />
+                    경우 알려드려요.</span
+                  >
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="content content--price-trend">
+          <div class="content__header">
+            <p class="content__title">가격 변동 추이</p>
+          </div>
+          <div class="content__body">
+            <div class="content__product">
+              <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+              <div class="content__product-info">
+                <span class="content__badge">역대 최저가</span>
+                <p class="content__product-name">SAMMU 게이밍의자 610-B, 다리 받침 대형SAMMU 게이밍의자 610-B, 다리 받침 대형</p>
+              </div>
+            </div>
+            <div class="content__price-summary">
+              <div class="content__price-item">
+                <span class="content__price-label content__price-label--high">최고가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+              <div class="content__price-item">
+                <span class="content__price-label content__price-label--low">최저가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+              <div class="content__price-item">
+                <span class="content__price-label">평균가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+            </div>
+            <!-- 차트 -->
+            <div class="content__chart">
+              <canvas class="content__chart-canvas" data-chart></canvas>
+            </div>
+            <button class="btn btn--variant-2 btn--tooltip" type="button">
+              알림 상품 등록하기
+              <span class="tooltip">
+                <span class="tooltip__btn">
+                  <span class="icon icon--tooltip-circle-white" aria-hidden="true"></span>
+                </span>
+                <span class="tooltip__message">
+                  <span class="tooltip__text"
+                    >평균가 아래로 가격이<br />
+                    떨어지면 알려드려요.</span
+                  >
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <!-- 가격 변동 추이 - 설정된 목표가 -->
+        <div class="content content--price-trend">
+          <div class="content__header">
+            <p class="content__title">가격 변동 추이</p>
+          </div>
+          <div class="content__body">
+            <div class="content__product">
+              <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+              <div class="content__product-info">
+                <span class="content__badge">역대 최저가</span>
+                <p class="content__product-name">SAMMU 게이밍의자 610-B, 다리 받침 대형SAMMU 게이밍의자 610-B, 다리 받침 대형</p>
+              </div>
+            </div>
+            <div class="content__price-summary">
+              <div class="content__price-item">
+                <span class="content__price-label content__price-label--high">최고가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+              <div class="content__price-item">
+                <span class="content__price-label content__price-label--low">최저가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+              <div class="content__price-item">
+                <span class="content__price-label">평균가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+            </div>
+            <!-- 차트 -->
+            <div class="content__chart">
+              <canvas class="content__chart-canvas" data-chart></canvas>
+            </div>
+            <div class="content__target-price content__target-price--info">
+              <div class="content__target-price-actions">
+                <button class="btn btn--variant-3" type="button">알림 상품에서 제거</button>
+                <button class="btn btn--variant-2 btn--tooltip" type="button">
+                  목표가 설정
+                  <span class="tooltip">
+                    <span class="tooltip__btn">
+                      <span class="icon icon--tooltip-circle-white" aria-hidden="true"></span>
+                    </span>
+                    <span class="tooltip__message">
+                      <span class="tooltip__text">...</span>
+                    </span>
+                  </span>
+                </button>
+              </div>
+              <div class="content__target-price-content">
+                <div class="content__target-price-header">
+                  <p class="content__target-price-title">설정된 목표가</p>
+                  <button class="content__target-price-delete" type="button" aria-label="삭제"><span class="icon" aria-hidden="true"></span></button>
+                </div>
+                <div class="content__target-price-body">
+                  <p class="content__target-price-desc"><span class="content__target-price-percent">-5%</span> <span class="content__target-price-value">(119,000원)</span> 이하가 되면 알림이 가요</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 가격 변동 추이 - 목표가 설정 -->
+        <div class="content content--price-trend">
+          <div class="content__header">
+            <p class="content__title">가격 변동 추이</p>
+          </div>
+          <div class="content__body">
+            <div class="content__product">
+              <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+              <div class="content__product-info">
+                <span class="content__badge">역대 최저가</span>
+                <p class="content__product-name">SAMMU 게이밍의자 610-B, 다리 받침 대형SAMMU 게이밍의자 610-B, 다리 받침 대형</p>
+              </div>
+            </div>
+            <div class="content__price-summary">
+              <div class="content__price-item">
+                <span class="content__price-label content__price-label--high">최고가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+              <div class="content__price-item">
+                <span class="content__price-label content__price-label--low">최저가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+              <div class="content__price-item">
+                <span class="content__price-label">평균가</span>
+                <span class="content__price-value">119,800원</span>
+              </div>
+            </div>
+            <!-- 차트 -->
+            <div class="content__chart">
+              <canvas class="content__chart-canvas" data-chart></canvas>
+            </div>
+            <div class="content__target-price content__target-price--setting">
+              <div class="content__target-price-content">
+                <div class="content__target-price-header">
+                  <p class="content__target-price-title">현재가</p>
+                  <p class="content__target-price-value"><span class="content__target-price-price">128,000</span>&nbsp;원</p>
+                </div>
+                <div class="content__target-price-body">
+                  <div class="content__target-price-adjuster">
+                    <div class="content__target-price-discount">
+                      <button class="content__target-price-btn content__target-price-btn--minus" aria-label="마이너스 버튼">
+                        <span class="icon" aria-hidden="true"></span>
+                      </button>
+                      <p class="content__target-price-desc">
+                        <span class="content__target-price-percent">5%</span>
+                        할인
+                      </p>
+                      <button class="content__target-price-btn content__target-price-btn--plus" aria-label="플러스 버튼">
+                        <span class="icon" aria-hidden="true"></span>
+                      </button>
+                    </div>
+                    <div class="content__target-price-input">
+                      <input class="input input--target-price" type="text" value="128000" />
+                      <span class="content__target-price-guide">원 이하가 되면 알려드려요</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="content__target-price-actions">
+                <button class="btn btn--variant-3" type="button">취소</button>
+                <button class="btn btn--variant-2" type="button">이 가격으로 알림 받기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 가격 변동 추이 - 에러 -->
+        <div class="content content--price-trend">
+          <div class="content__header">
+            <p class="content__title">가격 변동 추이</p>
+          </div>
+          <div class="content__body">
+            <div class="content__error">
+              <p class="content__error-desc">
+                가격 정보를 가져오는 중 문제가 발생했어요<br />
+                잠시 후 다시 시도해주세요
+              </p>
+              <button class="btn btn--variant-1" type="button">창 닫기</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 쇼핑몰별 가격 비교 -->
+        <div class="content content--price-compare">
+          <div class="content__header">
+            <p class="content__title">쇼핑몰별 가격 비교</p>
+          </div>
+          <ul class="content__price-list">
+            <li class="content__price-item content__price-item--highlight">
+              <button class="content__btn" type="button">
+                <span class="logo logo--coupang" role="img" aria-label="쿠팡"></span>
+                <span class="content__price">135,000원</span>
+              </button>
+            </li>
+            <li class="content__price-item">
+              <button class="content__btn" type="button">
+                <span class="content__logo-wrap">
+                  <span class="logo logo--11-square" aria-hidden="true"></span>
+                  <span class="content__logo-label">11번가</span>
+                </span>
+                <span class="content__price">135,000원</span>
+              </button>
+            </li>
+            <li class="content__price-item">
+              <button class="content__btn" type="button">
+                <span class="content__logo-wrap">
+                  <span class="logo logo--gmarket-square" aria-hidden="true"></span>
+                  <span class="content__logo-label">지마켓</span>
+                </span>
+                <span class="content__price">135,000원</span>
+              </button>
+            </li>
+            <li class="content__price-item">
+              <button class="content__btn" type="button">
+                <span class="content__logo-wrap">
+                  <span class="logo logo--auction-square" aria-hidden="true"></span>
+                  <span class="content__logo-label">옥션</span>
+                </span>
+                <span class="content__price">135,000원</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- 알림 상품 - 상품 미노출 -->
+        <div class="content content--alert-product">
+          <div class="content__header">
+            <p class="content__title">알림 상품</p>
+            <p class="content__count">총&nbsp;<span class="content__num">0</span>개</p>
+          </div>
+          <div class="tab-wrap-container">
+            <div class="tab-wrap tab-wrap--variant-1 tab-wrap--red" data-tab="swiper">
+              <button class="tab is-active" type="button">전체</button>
+              <button class="tab" type="button">가격하락</button>
+              <button class="tab" type="button">역대 최저가</button>
+              <button class="tab" type="button">목표가</button>
+              <button class="tab" type="button">재입고</button>
+            </div>
+            <div class="tab-wrap tab-wrap--variant-1" data-tab="swiper">
+              <button class="tab is-active" type="button">전체</button>
+              <button class="tab" type="button">식품</button>
+              <button class="tab" type="button">생활</button>
+              <button class="tab" type="button">디지털</button>
+              <button class="tab" type="button">패션/뷰티</button>
+              <button class="tab" type="button">출산/유아</button>
+              <button class="tab" type="button">스포츠/건강</button>
+              <button class="tab" type="button">도서/음반</button>
+              <button class="tab" type="button">완구/취미</button>
+              <button class="tab" type="button">문구/오피스</button>
+              <button class="tab" type="button">반려동물용품</button>
+            </div>
+          </div>
+          <div class="content__empty">
+            <p class="content__title">
+              아직 등록한 상품이 없어요
+              <span class="content__desc">관심 상품을 등록하고 가격 변동 알림을 받아보세요!</span>
+            </p>
+          </div>
+        </div>
+        <!-- 알림 상품 - 상품 노출 -->
+        <div class="content content--alert-product">
+          <div class="content__header">
+            <p class="content__title">알림 상품</p>
+            <p class="content__count">총&nbsp;<span class="content__num content__num--accent">1</span>개</p>
+          </div>
+          <div class="tab-wrap-container">
+            <div class="tab-wrap tab-wrap--variant-1 tab-wrap--red" data-tab="swiper">
+              <button class="tab is-active" type="button">전체</button>
+              <button class="tab" type="button">가격하락</button>
+              <button class="tab" type="button">역대 최저가</button>
+              <button class="tab" type="button">목표가</button>
+              <button class="tab" type="button">재입고</button>
+            </div>
+            <div class="tab-wrap tab-wrap--variant-1" data-tab="swiper">
+              <button class="tab is-active" type="button">전체</button>
+              <button class="tab" type="button">식품</button>
+              <button class="tab" type="button">생활</button>
+              <button class="tab" type="button">디지털</button>
+              <button class="tab" type="button">패션/뷰티</button>
+              <button class="tab" type="button">출산/유아</button>
+              <button class="tab" type="button">스포츠/건강</button>
+              <button class="tab" type="button">도서/음반</button>
+              <button class="tab" type="button">완구/취미</button>
+              <button class="tab" type="button">문구/오피스</button>
+              <button class="tab" type="button">반려동물용품</button>
+            </div>
+          </div>
+          <ul class="content__product-list">
+            <li class="content__product-item">
+              <button class="content__product content__product--soldout">
+                <span class="content__product-thumb-wrap">
+                  <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+                  <span class="content__product-soldout">
+                    <span class="content__product-badge">품절</span>
+                  </span>
+                </span>
+                <span class="content__product-name">SAMMU 게이밍의자 61SA</span>
+                <span class="content__product-info">
+                  <span class="content__product-price">128,000원</span>
+                </span>
+              </button>
+              <button class="content__product-close" aria-label="상품 삭제">
+                <span class="icon icon--close-circle-gray" aria-hidden="true"></span>
+              </button>
+            </li>
+            <li class="content__product-item">
+              <button class="content__product">
+                <span class="content__product-thumb-wrap">
+                  <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+                  <span class="content__product-soldout">
+                    <span class="content__product-badge">품절</span>
+                  </span>
+                </span>
+                <span class="content__product-name">SAMMU 게이밍의자 61SA</span>
+                <span class="content__product-info">
+                  <span class="content__product-rate content__product-rate--neutral">0%</span>
+                  <span class="content__product-price">128,000원</span>
+                </span>
+              </button>
+              <button class="content__product-close" aria-label="상품 삭제">
+                <span class="icon icon--close-circle-gray" aria-hidden="true"></span>
+              </button>
+            </li>
+            <li class="content__product-item">
+              <button class="content__product">
+                <span class="content__product-thumb-wrap">
+                  <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+                  <span class="content__product-soldout">
+                    <span class="content__product-badge">품절</span>
+                  </span>
+                </span>
+                <span class="content__product-name">SAMMU 게이밍의자 61SA</span>
+                <span class="content__product-info">
+                  <span class="content__product-rate">48%</span>
+                  <span class="content__product-price">128,000원</span>
+                </span>
+              </button>
+              <button class="content__product-close" aria-label="상품 삭제">
+                <span class="icon icon--close-circle-gray" aria-hidden="true"></span>
+              </button>
+            </li>
+            <li class="content__product-item">
+              <button class="content__product content__product--soldout">
+                <span class="content__product-thumb-wrap">
+                  <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+                  <span class="content__product-soldout">
+                    <span class="content__product-badge">품절</span>
+                  </span>
+                </span>
+                <span class="content__product-name">SAMMU 게이밍의자 61SA</span>
+                <span class="content__product-info">
+                  <span class="content__product-price">128,000원</span>
+                </span>
+              </button>
+              <button class="content__product-close" aria-label="상품 삭제">
+                <span class="icon icon--close-circle-gray" aria-hidden="true"></span>
+              </button>
+            </li>
+            <li class="content__product-item">
+              <button class="content__product">
+                <span class="content__product-thumb-wrap">
+                  <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+                  <span class="content__product-soldout">
+                    <span class="content__product-badge">품절</span>
+                  </span>
+                </span>
+                <span class="content__product-name">SAMMU 게이밍의자 61SA</span>
+                <span class="content__product-info">
+                  <span class="content__product-rate content__product-rate--down">48%</span>
+                  <span class="content__product-price">128,000원</span>
+                </span>
+              </button>
+              <button class="content__product-close" aria-label="상품 삭제">
+                <span class="icon icon--close-circle-gray" aria-hidden="true"></span>
+              </button>
+            </li>
+            <li class="content__product-item">
+              <button class="content__product">
+                <span class="content__product-thumb-wrap">
+                  <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+                  <span class="content__product-soldout">
+                    <span class="content__product-badge">품절</span>
+                  </span>
+                </span>
+                <span class="content__product-name">SAMMU 게이밍의자 61SA</span>
+                <span class="content__product-info">
+                  <span class="content__product-rate">48%</span>
+                  <span class="content__product-price">128,000원</span>
+                </span>
+              </button>
+              <button class="content__product-close" aria-label="상품 삭제">
+                <span class="icon icon--close-circle-gray" aria-hidden="true"></span>
+              </button>
+            </li>
+            <li class="content__product-item">
+              <button class="content__product content__product--soldout">
+                <span class="content__product-thumb-wrap">
+                  <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+                  <span class="content__product-soldout">
+                    <span class="content__product-badge">품절</span>
+                  </span>
+                </span>
+                <span class="content__product-name">SAMMU 게이밍의자 61SA</span>
+                <span class="content__product-info">
+                  <span class="content__product-price">128,000원</span>
+                </span>
+              </button>
+              <button class="content__product-close" aria-label="상품 삭제">
+                <span class="icon icon--close-circle-gray" aria-hidden="true"></span>
+              </button>
+            </li>
+            <li class="content__product-item">
+              <button class="content__product">
+                <span class="content__product-thumb-wrap">
+                  <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+                  <span class="content__product-soldout">
+                    <span class="content__product-badge">품절</span>
+                  </span>
+                </span>
+                <span class="content__product-name">SAMMU 게이밍의자 61SA</span>
+                <span class="content__product-info">
+                  <span class="content__product-rate content__product-rate--down">48%</span>
+                  <span class="content__product-price">128,000원</span>
+                </span>
+              </button>
+              <button class="content__product-close" aria-label="상품 삭제">
+                <span class="icon icon--close-circle-gray" aria-hidden="true"></span>
+              </button>
+            </li>
+            <li class="content__product-item">
+              <button class="content__product">
+                <span class="content__product-thumb-wrap">
+                  <span class="content__product-thumb" aria-hidden="true" style="background-image: url(./assets/images-test/img-test-01.png)"></span>
+                  <span class="content__product-soldout">
+                    <span class="content__product-badge">품절</span>
+                  </span>
+                </span>
+                <span class="content__product-name">SAMMU 게이밍의자 61SA</span>
+                <span class="content__product-info">
+                  <span class="content__product-rate">48%</span>
+                  <span class="content__product-price">128,000원</span>
+                </span>
+              </button>
+              <button class="content__product-close" aria-label="상품 삭제">
+                <span class="icon icon--close-circle-gray" aria-hidden="true"></span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
